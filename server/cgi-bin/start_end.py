@@ -10,6 +10,7 @@ import handle_sqlite
 cgitb.enable()
 
 print("Content-type: application/json")
+print("Access-Control-Allow-Origin: *")
 print()
 
 form = cgi.FieldStorage()

@@ -5,7 +5,8 @@
 	var prevData = []
 	//var url = "http://localhost:8000/cgi-bin/get_drank_beer.py"
 	var startDate;
-	var url = "http://35.167.183.0/cgi-bin/get_drank_beer.py"
+	var url = "http://35.167.183.0/cgi-bin/get_drank_beer.py";
+	var restart = "http://35.167.183.0/cgi-bin/start_end.py?state=start";
 
 	//開始時刻ゲット
 	$.ajax({
@@ -18,6 +19,14 @@
 	    }
 	});
 
+	$("#main-bg").on("click", function() {
+	    $.ajax({
+		type: "GET",
+		async: false,
+		url: restart,
+		dataType: "json",
+	    });
+	});
 
 	var changeBeerAmount = function(to) {
 	    var timer;
@@ -83,6 +92,8 @@
 			    $('.wrapper').attr('class', 'wrapper wrapper--party');
 			    $('.main-container').attr('class', 'main-container main-container--party');
 			    $('.timer-container').attr('class', 'timer-container timer-container--party');
+			} else if (amount >= 3000) {
+			    
 			}
 			console.log(amount, to_percent);
 			console.log(data)

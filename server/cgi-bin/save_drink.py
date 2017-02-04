@@ -19,7 +19,6 @@ if "amount" not in form:
 amount = form["amount"].value
 time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
-exit()
 # 保存
 insert_data = {}
 try:

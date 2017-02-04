@@ -4,7 +4,7 @@
     shell_exec('gpio -g mode 17 out > /dev/null 2>&1 &');
 
     if ($mirror === 'on' && $sound === 'on') {
-        shell_exec('mpg321 /home/pi/c3.mp3 > /dev/null 2>&1 &');
+        shell_exec('mpg321 /home/pi/test.mp3 > /dev/null 2>&1 &');
         shell_exec('gpio -g write 17 1 > /dev/null 2>&1 &');
 
         echo '{"status":"success","code":{"mirror":"on","sound":"on"}}';
@@ -14,7 +14,7 @@
 
         echo '{"status":"success","code":{"mirror":"on","sound":"off"}}';
     } elseif ($mirror === 'off' && $sound === 'on') {
-        shell_exec('mpg321 /home/pi/c3.mp3 > /dev/null 2>&1 &');
+        shell_exec('mpg321 /home/pi/test.mp3 > /dev/null 2>&1 &');
         shell_exec('gpio -g write 17 0 > /dev/null 2>&1 &');
 
         echo '{"status":"success","code":{"mirror":"off","sound":"on"}}';

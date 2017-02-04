@@ -10,6 +10,7 @@ import handle_device
 cgitb.enable()
 
 print("Content-type: application/json")
+print("Access-Control-Allow-Origin: *")
 print()
 
 # 保存

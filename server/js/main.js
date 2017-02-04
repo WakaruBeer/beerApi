@@ -3,8 +3,8 @@
 	var percent = 193
 	var max_ml = 3000
 	var prevData = []
-	var url = "http://localhost:8000/cgi-bin/get_drank_beer.py"
-	//var url = "http://35.167.183.0/cgi-bin/get_drank_beer.py"
+	//var url = "http://localhost:8000/cgi-bin/get_drank_beer.py"
+	var url = "http://35.167.183.0/cgi-bin/get_drank_beer.py"
 
 	var changeBeerAmount = function(to) {
 	    var timer;

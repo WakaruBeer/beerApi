@@ -22,7 +22,7 @@
 	$("#main-bg").on("click", function() {
 	    $.ajax({
 		type: "GET",
-		async: false,
+		async: true,
 		url: restart,
 		dataType: "json",
 	    });
@@ -89,13 +89,14 @@
 			changeBeerAmount(to_percent);
 			updateLap(data);
 
-			if (amount >= 2000) {
+			if (amount >= 3000) {
+			    location.href = "result/index.html"
+			} else if (amount >= 2000) {
 			    $('.wrapper').attr('class', 'wrapper wrapper--party');
 			    $('.main-container').attr('class', 'main-container main-container--party');
 			    $('.timer-container').attr('class', 'timer-container timer-container--party');
-			} else if (amount >= 3000) {
-			    
 			}
+
 			console.log(amount, to_percent);
 			console.log(data)
 		    } else if (data.length < prevData.length) {

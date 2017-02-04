@@ -26,6 +26,7 @@
 		url: restart,
 		dataType: "json",
 	    });
+	    location.reload();
 	});
 
 	var changeBeerAmount = function(to) {

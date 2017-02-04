@@ -13,7 +13,7 @@ def judge_atmosphere(data):
 
     amount_prev = amount - data[len(data) - 1]["amount"]
 
-    if amount_prev < 1000 and amount >= 1000:
+    if amount_prev < 1000 and amount >= 1000 and amount < 2000:
         result = on_off(url, "on", "off")
     elif amount_prev < 2000 and amount >= 2000:
         result = on_off(url, "on", "on")

@@ -5,30 +5,30 @@ import cgi
 import json
 import datetime
 import handle_sqlite
+import handle_device
 
 cgitb.enable()
 
 print("Content-type: application/json")
 print()
 
-form = cgi.FieldStorage()
-if "amount" not in form:
-    print(json.dumps({"status": "failed", "explanation": "argument error"}))
-    exit()
-
-amount = form["amount"].value
-time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
 # 保存
-insert_data = {}
 try:
-    insert_data = handle_sqlite.insert("beer.db", amount, time)
+    data = handle_sqlite.select("beer.db")
 except:
     print(json.dumps({"status": "failed", "explanation": "error around db"}))
     exit()
 
+try:
+    # ミラーボールとかの判定
+    device_result = handle_device.judge_atmosphere(data)
+except:
+    print(json.dumps({"status": "failed", "explanation": "error around device"}))
+    exit()
+
 print(json.dumps({
     "status": "success",
-    "data": insert_data
+    "data": data,
+    "device": device_result,
 }))
 

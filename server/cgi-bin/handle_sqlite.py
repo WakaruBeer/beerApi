@@ -15,7 +15,7 @@ def insert(db_name, user, amount, time):
     create_table_if_not_exist(con, cur)
 
     cur.execute("INSERT INTO beer (uid, amount, time) VALUES (?, ?, ?);",
-                (user, amount, time))
+                (int(user), int(amount), time))
     con.commit()
 
 def confirm(db_name):

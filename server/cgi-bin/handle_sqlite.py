@@ -23,7 +23,8 @@ def confirm(db_name):
     cur = con.cursor()
     cur.execute("SELECT * FROM beer;")
     products = cur.fetchall()
-    print(products)
+    for product in products:
+        print(product)
 
 
 if __name__ == "__main__":

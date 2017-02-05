@@ -31,7 +31,8 @@
 		    time = (new Date(lapData.time).getTime() - prevDate.getTime()) / 1000;
 		    prevDate = new Date(lapData.time)
 
-		    labels.push(amount / 1000);
+		    if (i == 0) continue;
+		    labels.push((amount / 1000) + "L");
 		    timeList.push(time);
 		}
 
@@ -39,6 +40,7 @@
                     animation : true,
                     animationSteps: 60,
                     animationEasing: "easeInOutCubic",
+		    scaleLabel : "<%=value%>s",
 		    //responsive:true
 		};
 
